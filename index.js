@@ -69,7 +69,30 @@ const init = () => {
 
     }])
     teamMembers.push(manager);
+    // TODO add one more line of code
   };
+  const buildTeam = async () => {
+    const teamMember = await inquirer.prompt([
+      {
+        type: 'list',
+        name: "employeeRole", 
+        message: "What is the employee's role?",
+        choices: ['Engineer', 'Intern', "Finished entering employees."]
+    },
+]);
+
+switch(teamMember.role) {
+    case "Engineer";
+    createEngine();
+    break;
+    case "Intern":
+        createIntern();
+        break;
+        default:
+        //default
+    }
+
+  }
 };
 
 init();
